@@ -4,7 +4,7 @@
 
 **"One Ship. Every System. No Limits."**
 
-XoDos‑Ark is a native Android application that wraps the powerful [XoDos](https://github.com/your-org/xodos) emulator inside a beautiful, secure container. It preserves your entire digital legacy—operating systems, applications, and games—no matter how old or obscure. Think of it as **Noah’s Ark for software**: every byte of your history survives the flood of obsolescence.
+XoDos‑Ark is a native Android application that wraps the powerful [XoDos](https://github.com/xodiosx/XoDos) and [XoDos:Re](https://github.com/xodiosx/XoDos2) emulator inside a beautiful, secure container. It preserves your entire digital legacy—operating systems, applications, and games—no matter how old or obscure. Think of it as **Noah’s Ark for software**: every byte of your history survives the flood of obsolescence.
 
 <p align="center">
   <!-- Replace with your actual hosted logo image -->
