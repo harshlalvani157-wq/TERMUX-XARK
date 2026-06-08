@@ -1,0 +1,83 @@
+src/raw_api.lo: /root/xodos/xodosark-wayland/libffi/src/raw_api.c \
+  include/ffi.h include/ffitarget.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/stddef.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_ptrdiff_t.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_size_t.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_wchar_t.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_null.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_max_align_t.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_offsetof.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/limits.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/limits.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/sys/cdefs.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/android/versioning.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/android/api-level.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/get_device_api_level_inlines.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/android/ndk-version.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/float.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/limits.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/posix_limits.h \
+  /root/xodos/xodosark-wayland/libffi/include/ffi_common.h fficonfig.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/alloca.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/string.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/xlocale.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/strcasecmp.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/sys/types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/stdint.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/stdint.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/wchar_limits.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/aarch64-linux-android/asm/types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/int-ll64.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/aarch64-linux-android/asm/bitsperlong.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/bitsperlong.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/posix_types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/stddef.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/compiler_types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/compiler.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/aarch64-linux-android/asm/posix_types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/posix_types.h \
+  /root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/pthread_types.h
+include/ffi.h:
+include/ffitarget.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/stddef.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_ptrdiff_t.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_size_t.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_wchar_t.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_null.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_max_align_t.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/__stddef_offsetof.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/limits.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/limits.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/sys/cdefs.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/android/versioning.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/android/api-level.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/get_device_api_level_inlines.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/android/ndk-version.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/float.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/limits.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/posix_limits.h:
+/root/xodos/xodosark-wayland/libffi/include/ffi_common.h:
+fficonfig.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/alloca.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/string.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/xlocale.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/strcasecmp.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/sys/types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-x86_64/lib/clang/18/include/stdint.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/stdint.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/wchar_limits.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/aarch64-linux-android/asm/types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/int-ll64.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/aarch64-linux-android/asm/bitsperlong.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/bitsperlong.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/posix_types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/stddef.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/compiler_types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/linux/compiler.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/aarch64-linux-android/asm/posix_types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/asm-generic/posix_types.h:
+/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/../sysroot/usr/include/bits/pthread_types.h:

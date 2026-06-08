@@ -1,0 +1,10 @@
+src/aarch64/sysv.lo: \
+  /root/xodos/xodosark-wayland/libffi/src/aarch64/sysv.S fficonfig.h \
+  include/ffi.h include/ffitarget.h \
+  /root/xodos/xodosark-wayland/libffi/include/ffi_cfi.h \
+  /root/xodos/xodosark-wayland/libffi/src/aarch64/internal.h
+fficonfig.h:
+include/ffi.h:
+include/ffitarget.h:
+/root/xodos/xodosark-wayland/libffi/include/ffi_cfi.h:
+/root/xodos/xodosark-wayland/libffi/src/aarch64/internal.h:

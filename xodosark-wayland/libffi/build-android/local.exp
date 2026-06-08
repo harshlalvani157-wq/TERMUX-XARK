@@ -1,0 +1,3 @@
+set CC_FOR_TARGET "/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/aarch64-linux-android23-clang"
+set CXX_FOR_TARGET "/root/android-sdk/android-ndk-r27b/toolchains/llvm/prebuilt/linux-aarch64/bin/aarch64-linux-android24-clang++"
+set compiler_vendor "clang"

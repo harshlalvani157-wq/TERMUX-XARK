@@ -1,0 +1,29 @@
+#!/bin/bash
+set -e
+
+OLD="xodosark"
+NEW="xodos2"
+
+echo "=== Replacing '$OLD' with '$NEW' in all relevant text files ==="
+find . \( -name ".git" -o -name "build" -o -name ".gradle" -o -name "*.iml" -o -name ".idea" \) -prune -o \
+  -type f \( -name "*.java" -o -name "*.kt" -o -name "*.xml" -o -name "*.gradle.kts" \
+            -o -name "*.properties" -o -name "*.pro" -o -name "*.rs" -o -name "*.toml" \
+            -o -name "*.json" -o -name "*.gradle" \) \
+  -exec sed -i "s/$OLD/$NEW/g" {} +
+
+echo "=== Moving package directories ==="
+# Only operate on directories that actually contain the old name
+while IFS= read -r -d '' dir; do
+    newdir="${dir//$OLD/$NEW}"
+    if [ "$dir" != "$newdir" ]; then
+        mkdir -p "$(dirname "$newdir")"
+        mv "$dir" "$newdir"
+        echo "Moved: $dir -> $newdir"
+    fi
+done < <(find . -type d -name "$OLD" -not -path "*/.git/*" -not -path "*/build/*" -not -path "*/.gradle/*" -print0)
+
+echo "=== All replacements complete ==="
+echo "Remember to:"
+echo "  - Verify changes with: git diff"
+echo "  - Manually update any remaining references (e.g., library names in Cargo.toml or CMakeLists.txt)"
+echo "  - Rebuild the native library and the APK"
