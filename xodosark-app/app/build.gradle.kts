@@ -25,19 +25,19 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 kotlinOptions {
-        jvmTarget = "11"            // ← match Java’s target
+        jvmTarget = "11"          
     }
         defaultConfig {
         applicationId = "app.xodos2"
         minSdk = 26
         targetSdk = 34
       
-        ndkVersion = "27.1.12297006"    // ✅ correct Kotlin DSL syntax
+        ndkVersion = "27.1.12297006"   
         buildConfigField("String", "COMMIT", "\"xodos2-embedded-x11\"")
         // versionName: user-visible, align with git tag / Release (e.g. v0.1.0 → "0.1.0").
         // versionCode: positive integer, must increase for every new APK you ship (Play / sideload).
-        versionCode = 8
-        versionName = "0.4.1"
+        versionCode = 6
+        versionName = "0.6.0"
     }
 
     signingConfigs {
