@@ -1,0 +1,19 @@
+#!/bin/bash
+
+LOG_FILE="build.log"
+
+echo "🚀 Starting build..."
+
+# Run build, show logs + save them
+./gradlew assembleDebug 2>&1 | tee "$LOG_FILE"
+
+BUILD_STATUS=${PIPESTATUS[0]}
+
+if [ $BUILD_STATUS -eq 0 ]; then
+    echo "✅ Build succeeded"
+    mpg123 /data/data/com.termux/files/usr/etc/boot.mp3 &>/dev/null &
+else
+    echo "❌ Build failed (check $LOG_FILE)"
+fi
+
+exit $BUILD_STATUS

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="xodos2_terminal_font_applied" type="id" />
+    <item name="xodos2_shell_controller" type="id" />
+    <item name="xodos2_renderer_session_epoch" type="id" />
+</resources>
