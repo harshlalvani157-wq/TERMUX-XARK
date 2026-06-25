@@ -21,6 +21,7 @@ object TerminalSessionController {
             TerminalSessionIds.ARCH_TERMINAL,
             TerminalSessionIds.DEBIAN_TERMINAL,
             TerminalSessionIds.WINE_TERMINAL,
+            TerminalSessionIds.NATIVE_TERMINAL, // Added pure Termux shell to the UI list
         ),
         activeSessionId = TerminalSessionIds.ARCH_TERMINAL,
     )
@@ -56,4 +57,3 @@ object TerminalSessionController {
         )
     }
 }
-
