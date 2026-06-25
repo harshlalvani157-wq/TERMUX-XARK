@@ -5,9 +5,9 @@ import app.xodos2.ui.runtime.NativeInstallCoordinator
 
 /**
  * PTY sessions are keyed by a single `Int` in JNI; conceptually this is a **(namespace, slot)** grid:
- * - `[0][*]` Arch, `[1][*]` Wine, `[2][*]` Debian (same order as the in-app drawer tabs)
+ * - `[0][*]` Arch, `[1][*]` Wine, `[2][*]` Debian, `[3][*]` Native Termux
  * - **slot 0** in each namespace is reserved for that environment’s headless “desktop / inject” session;
- *   **slot 1+** are interactive terminals
+ * **slot 1+** are interactive terminals
  *
  * Encoding: `nativeId = namespace * SESSION_STRIDE + slot`
  */
@@ -17,6 +17,7 @@ object TerminalSessionIds {
     const val NS_ARCH = 0
     const val NS_WINE = 1
     const val NS_DEBIAN = 2
+    const val NS_NATIVE = 3 // <--- ADDED: Namespace for native Termux shell
 
     const val SLOT_HEADLESS_DISPLAY = 0
     const val SLOT_FIRST_INTERACTIVE = 1
@@ -27,11 +28,12 @@ object TerminalSessionIds {
     fun namespaceOf(nativeSessionId: Int): Int = nativeSessionId / SESSION_STRIDE
     fun slotOf(nativeSessionId: Int): Int = nativeSessionId % SESSION_STRIDE
 
-    /** Matches `jni_context::RootfsKind`: Arch=0, Debian=1, Wine=2 */
+    /** Matches `jni_context::RootfsKind`: Arch=0, Debian=1, Wine=2, Native=3 */
     fun rootfsKindForNativeId(nativeSessionId: Int): Int = when (namespaceOf(nativeSessionId)) {
         NS_ARCH -> 0
         NS_DEBIAN -> 1
         NS_WINE -> 2
+        NS_NATIVE -> 3 // <--- ADDED: Tells JNI this is type 3 (Native/Bypass)
         else -> 0
     }
 
@@ -42,6 +44,10 @@ object TerminalSessionIds {
     fun terminalTabLabel(nativeSessionId: Int, context: Context? = null): String {
         val ns = namespaceOf(nativeSessionId)
         val slot = slotOf(nativeSessionId)
+        
+        // <--- ADDED: Fast-track label for the native shell
+        if (ns == NS_NATIVE) return "Termux Host $slot"
+
         val name = if (context != null) {
             val containerId = when (ns) {
                 NS_ARCH   -> 1
@@ -80,10 +86,11 @@ object TerminalSessionIds {
     val ARCH_X11_DISPLAY: Int = LEGACY_ARCH_X11_PTY
     val WINE_X11_DISPLAY: Int = WINE_HEADLESS_DISPLAY
 
-   @JvmField
-val ARCH_TERMINAL: Int = nativeId(NS_ARCH, SLOT_FIRST_INTERACTIVE)
+    @JvmField
+    val ARCH_TERMINAL: Int = nativeId(NS_ARCH, SLOT_FIRST_INTERACTIVE)
     val WINE_TERMINAL: Int = nativeId(NS_WINE, SLOT_FIRST_INTERACTIVE)
     val DEBIAN_TERMINAL: Int = nativeId(NS_DEBIAN, SLOT_FIRST_INTERACTIVE)
+    val NATIVE_TERMINAL: Int = nativeId(NS_NATIVE, SLOT_FIRST_INTERACTIVE) // <--- ADDED: Our new target ID
 
     val FIRST_TERMINAL: Int = ARCH_TERMINAL
 
