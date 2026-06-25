@@ -22,6 +22,7 @@ object NativeBridge {
     fun hasArchRootfs(): Boolean = hasContainerRootfs(1)
     fun hasDebianRootfs(): Boolean = hasContainerRootfs(2)
     fun hasWineRootfs(): Boolean = hasContainerRootfs(3)
+    fun hasNativeRootfs(): Boolean = true // <--- ADDED: Native Termux is always available
 
     // ── Old download functions (deprecated) ──────────────
     @Deprecated("Use installToContainer(1, url, name, callback)")
@@ -46,6 +47,7 @@ object NativeBridge {
         0 -> spawnSessionInContainer(sessionId, rows, cols, 1) //1
         1 -> spawnSessionInContainer(sessionId, rows, cols, 2) // 2
         2 -> spawnSessionInContainer(sessionId, rows, cols, 3) // 3
+        3 -> spawnNativeSession(sessionId, rows, cols)         // <--- ADDED: Route ID 3 to pure Termux spawn
         else -> false
     }
 
@@ -90,6 +92,13 @@ object NativeBridge {
         containerId: Int
     ): Boolean
 
+    // <--- ADDED: JNI bridge to Rust for spawning native shell
+    external fun spawnNativeSession(
+        sessionId: Int,
+        rows: Int,
+        cols: Int
+    ): Boolean
+
     // ── Advanced generic download (optional, kept for compatibility) ──
     external fun ensureRootfs(
         url: String,
@@ -97,13 +106,6 @@ object NativeBridge {
         extractPath: String,
         callback: ProgressCallback
     ): Boolean
-
-    // This one can be removed if not used – it requires a local file path, not yet implemented
-    // external fun extractLocalRootfs(
-    //     rootfsKind: Int,
-    //     archivePath: String,
-    //     callback: ProgressCallback
-    // ): Boolean
 }
 
 interface ProgressCallback {
