@@ -29,7 +29,7 @@ mod combined {
     use std::thread;
 
     // --------------------------------------------------------------------------
-    // Session management (unchanged except spawning uses container paths)
+    // Session management
     // --------------------------------------------------------------------------
 
     struct PtySession {
@@ -103,7 +103,37 @@ mod combined {
         Ok(())
     }
 
-    // ... (pty_master_reader_loop, post_pty_chunk_to_java unchanged, as in previous merged version)
+    // <--- ADDED: Spawns a pure native Termux shell bypass instead of a rootfs container
+    fn spawn_native_shell(
+        session_id: i32,
+        rows: u16,
+        cols: u16,
+    ) -> Result<()> {
+        let mut map = SESSIONS
+            .lock()
+            .map_err(|e| anyhow::anyhow!("SESSIONS lock: {:?}", e))?;
+        if map.contains_key(&session_id) {
+            return Ok(());
+        }
+        
+        // Ask the proot module to just give us a normal shell
+        let (child, read_file, stdin, master_fd) =
+            proot::fork_native_pty_shell(rows, cols)?;
+            
+        map.insert(
+            session_id,
+            PtySession {
+                _child: child,
+                stdin,
+                master_fd,
+            },
+        );
+        drop(map);
+        thread::spawn(move || {
+            pty_master_reader_loop(session_id, read_file);
+        });
+        Ok(())
+    }
 
     fn pty_master_reader_loop(session_id: i32, mut master_read: std::fs::File) {
         let mut buf = [0u8; 4096];
@@ -408,6 +438,26 @@ mod combined {
             Ok(()) => 1,
             Err(e) => {
                 log::error!("spawnDefaultSession failed: {:?}", e);
+                0
+            }
+        }
+    }
+
+    // <--- ADDED: JNI endpoint that catches the spawnNativeSession command from Kotlin
+    #[no_mangle]
+    pub extern "system" fn Java_app_xodos2_NativeBridge_spawnNativeSession(
+        _env: JNIEnv,
+        _: JObject,
+        session_id: jint,
+        rows: jint,
+        cols: jint,
+    ) -> jboolean {
+        let r = rows.max(1).min(i32::from(u16::MAX)) as u16;
+        let c = cols.max(1).min(i32::from(u16::MAX)) as u16;
+        match spawn_native_shell(session_id, r, c) {
+            Ok(()) => 1,
+            Err(e) => {
+                log::error!("spawnNativeSession failed: {:?}", e);
                 0
             }
         }
